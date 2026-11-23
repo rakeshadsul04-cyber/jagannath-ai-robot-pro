@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jagannath AI Robot PRO</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#07152e,#172b50);
+  color: white;
+  text-align: center;
+}
+header {
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #00e5ff;
+}
+.robot {
+  font-size: 100px;
+  margin: 35px;
+  animation: float 2s infinite alternate;
+}
+@keyframes float {
+  to {transform: translateY(-15px);}
+}
+.box {
+  margin: 20px;
+  padding: 20px;
+  background: #14294b;
+  border-radius: 20px;
+}
+input {
+  padding: 15px;
+  width: 75%;
+  border-radius: 12px;
+  border: none;
+}
+button {
+  padding: 14px 20px;
+  margin: 8px;
+  border: none;
+  border-radius: 12px;
+  background: #00cfff;
+  font-weight: bold;
+}
+#reply {color:#00ffbb;}
+</style>
+</head>
+<body>
+<header>🤖 JAGANNATH AI ROBOT PRO</header>
+<div class="robot">🤖</div>
+<div class="box">
+<h2>नमस्कार! मी जगन्नाथ AI Robot</h2>
+<p>मी तुमचा स्मार्ट AI सहाय्यक आहे.</p>
+<input id="question" placeholder="तुमचा प्रश्न लिहा...">
+<br>
+<button onclick="askAI()">SEND</button>
+<button onclick="speak()">🔊 बोलून दाखवा</button>
+<h3 id="reply">मी तुमच्या प्रश्नाची वाट पाहत आहे.</h3>
+</div>
+<script>
+function askAI(){
+ let q=document.getElementById("question").value;
+ document.getElementById("reply").innerText =
+ q ? "नमस्कार! तुमचा प्रश्न मिळाला: "+q :
+ "कृपया प्रश्न लिहा.";
+}
+function speak(){
+ let t=document.getElementById("reply").innerText;
+ let s=new SpeechSynthesisUtterance(t);
+ s.lang="mr-IN";
+ speechSynthesis.speak(s);
+}
+</script>
+</body>
+</html>
